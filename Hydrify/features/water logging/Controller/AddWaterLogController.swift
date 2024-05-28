@@ -9,9 +9,14 @@ import UIKit
 
 class AddWaterLogController: UIViewController {
     private let waterlogViewModel:DailyWaterLogViewModel
+    private var log:WaterLog? = nil
     init(waterlogViewModel:DailyWaterLogViewModel) {
         self.waterlogViewModel = waterlogViewModel
         super.init(nibName: nil, bundle: nil)
+    }
+    convenience init(waterlogViewModel:DailyWaterLogViewModel,log: WaterLog?) {
+        self.init(waterlogViewModel: waterlogViewModel)
+        self.log = log
     }
     
     required init?(coder: NSCoder) {
@@ -20,7 +25,6 @@ class AddWaterLogController: UIViewController {
     fileprivate lazy var picker : UIPickerView = {
         let picker = UIPickerView()
        
-
         picker.dataSource = self // Set yourself as the data source
         picker.delegate = self // Set yourself as the delegate
         return picker
@@ -88,6 +92,16 @@ class AddWaterLogController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
+        addViews()
+        if let log = log {
+            unitTextField.text = log.unit
+            quantityTextField.text = "\(log.quantity)"
+            dateLabel.text = "\(log.date ?? Date())"
+        }
+        // Do any additional setup after loading the view.
+    }
+    
+    private func addViews() {
         stackView.addArrangedSubview(quantityTextField)
         stackView.addArrangedSubview(unitTextField)
         stackView.addArrangedSubview(dateLabel)
@@ -101,7 +115,6 @@ class AddWaterLogController: UIViewController {
         let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         toolbar.setItems([flexibleSpace, doneButton], animated: false)
         unitTextField.inputAccessoryView = toolbar
-        // Do any additional setup after loading the view.
     }
     
     private func setUpconstraint() {

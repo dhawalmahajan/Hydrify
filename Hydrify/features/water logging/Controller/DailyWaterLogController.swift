@@ -22,9 +22,8 @@ class DailyWaterLogController: UIViewController {
         let tv = UITableView()
         tv.delegate = self
         tv.dataSource = self
-
         tv.translatesAutoresizingMaskIntoConstraints = false
-        tv.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tv.register(LogTableCell.self, forCellReuseIdentifier: LogTableCell.identifier)
         return tv
     }()
     
@@ -79,6 +78,11 @@ extension DailyWaterLogController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         viewModel.cellForRowAt(tableView, indexPath: indexPath)
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let editLog = AddWaterLogController(waterlogViewModel: viewModel, log: viewModel.waterLog[indexPath.row])
+        show(editLog, sender: nil)
+    }
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
             if editingStyle == .delete {
                 
@@ -86,4 +90,7 @@ extension DailyWaterLogController: UITableViewDelegate, UITableViewDataSource {
                 
             }
         }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
+    }
 }

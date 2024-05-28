@@ -95,9 +95,8 @@ extension DailyWaterLogViewModel {
         return waterLog.count
     }
     func cellForRowAt(_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = waterLog[indexPath.row].unit
-       
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: LogTableCell.identifier, for: indexPath) as? LogTableCell else {return UITableViewCell()}
+        cell.configureCell(with: waterLog[indexPath.row])
         return cell
     }
    

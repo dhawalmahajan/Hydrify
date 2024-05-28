@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		02717E712C05E258009B12DC /* LogTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02717E702C05E258009B12DC /* LogTableCell.swift */; };
 		02A45AF02C0043BF0017A7B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A45AEF2C0043BF0017A7B4 /* AppDelegate.swift */; };
 		02A45AF22C0043BF0017A7B4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A45AF12C0043BF0017A7B4 /* SceneDelegate.swift */; };
 		02A45AF42C0043BF0017A7B4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A45AF32C0043BF0017A7B4 /* ViewController.swift */; };
@@ -41,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		02717E702C05E258009B12DC /* LogTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogTableCell.swift; sourceTree = "<group>"; };
 		02A45AEC2C0043BF0017A7B4 /* Hydrify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hydrify.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		02A45AEF2C0043BF0017A7B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		02A45AF12C0043BF0017A7B4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 			children = (
 				02717E6E2C05E022009B12DC /* ViewModel */,
 				02717E6D2C05E016009B12DC /* Controller */,
+				02717E702C05E258009B12DC /* LogTableCell.swift */,
 			);
 			path = "water logging";
 			sourceTree = "<group>";
@@ -315,6 +318,7 @@
 			files = (
 				02EB7CAD2C0300ED0002D553 /* AddWaterLogController.swift in Sources */,
 				02A45AF42C0043BF0017A7B4 /* ViewController.swift in Sources */,
+				02717E712C05E258009B12DC /* LogTableCell.swift in Sources */,
 				02A45AF02C0043BF0017A7B4 /* AppDelegate.swift in Sources */,
 				02EB7CAB2C02FB150002D553 /* DailyWaterLogViewModel.swift in Sources */,
 				02EB7CA92C02F3AE0002D553 /* DailyWaterLogController.swift in Sources */,
