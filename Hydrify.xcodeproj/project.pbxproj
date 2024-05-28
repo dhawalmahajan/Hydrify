@@ -8,9 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		02717E712C05E258009B12DC /* LogTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02717E702C05E258009B12DC /* LogTableCell.swift */; };
+		02717E752C061CDA009B12DC /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02717E742C061CDA009B12DC /* CoreDataManager.swift */; };
+		02717E772C061E99009B12DC /* HydrationLogViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02717E762C061E99009B12DC /* HydrationLogViewModel.swift */; };
 		02A45AF02C0043BF0017A7B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A45AEF2C0043BF0017A7B4 /* AppDelegate.swift */; };
 		02A45AF22C0043BF0017A7B4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A45AF12C0043BF0017A7B4 /* SceneDelegate.swift */; };
-		02A45AF42C0043BF0017A7B4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A45AF32C0043BF0017A7B4 /* ViewController.swift */; };
 		02A45AF72C0043BF0017A7B4 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 02A45AF62C0043BF0017A7B4 /* Base */; };
 		02A45AFA2C0043BF0017A7B4 /* Hydrify.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 02A45AF82C0043BF0017A7B4 /* Hydrify.xcdatamodeld */; };
 		02A45AFC2C0043C00017A7B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02A45AFB2C0043C00017A7B4 /* Assets.xcassets */; };
@@ -20,7 +21,6 @@
 		02A45B162C0043C10017A7B4 /* HydrifyUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A45B152C0043C10017A7B4 /* HydrifyUITestsLaunchTests.swift */; };
 		02A45B232C0056490017A7B4 /* PersistentStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A45B222C0056490017A7B4 /* PersistentStorage.swift */; };
 		02EB7CA92C02F3AE0002D553 /* DailyWaterLogController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02EB7CA82C02F3AE0002D553 /* DailyWaterLogController.swift */; };
-		02EB7CAB2C02FB150002D553 /* DailyWaterLogViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02EB7CAA2C02FB150002D553 /* DailyWaterLogViewModel.swift */; };
 		02EB7CAD2C0300ED0002D553 /* AddWaterLogController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02EB7CAC2C0300ED0002D553 /* AddWaterLogController.swift */; };
 /* End PBXBuildFile section */
 
@@ -43,10 +43,11 @@
 
 /* Begin PBXFileReference section */
 		02717E702C05E258009B12DC /* LogTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogTableCell.swift; sourceTree = "<group>"; };
+		02717E742C061CDA009B12DC /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		02717E762C061E99009B12DC /* HydrationLogViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HydrationLogViewModel.swift; sourceTree = "<group>"; };
 		02A45AEC2C0043BF0017A7B4 /* Hydrify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hydrify.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		02A45AEF2C0043BF0017A7B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		02A45AF12C0043BF0017A7B4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		02A45AF32C0043BF0017A7B4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		02A45AF62C0043BF0017A7B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		02A45AF92C0043BF0017A7B4 /* Hydrify.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Hydrify.xcdatamodel; sourceTree = "<group>"; };
 		02A45AFB2C0043C00017A7B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -59,7 +60,6 @@
 		02A45B152C0043C10017A7B4 /* HydrifyUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HydrifyUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		02A45B222C0056490017A7B4 /* PersistentStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentStorage.swift; sourceTree = "<group>"; };
 		02EB7CA82C02F3AE0002D553 /* DailyWaterLogController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyWaterLogController.swift; sourceTree = "<group>"; };
-		02EB7CAA2C02FB150002D553 /* DailyWaterLogViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyWaterLogViewModel.swift; sourceTree = "<group>"; };
 		02EB7CAC2C0300ED0002D553 /* AddWaterLogController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWaterLogController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -101,7 +101,7 @@
 			children = (
 				02717E6E2C05E022009B12DC /* ViewModel */,
 				02717E6D2C05E016009B12DC /* Controller */,
-				02717E702C05E258009B12DC /* LogTableCell.swift */,
+				02717E782C063BC4009B12DC /* View */,
 			);
 			path = "water logging";
 			sourceTree = "<group>";
@@ -118,7 +118,7 @@
 		02717E6E2C05E022009B12DC /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				02EB7CAA2C02FB150002D553 /* DailyWaterLogViewModel.swift */,
+				02717E762C061E99009B12DC /* HydrationLogViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -127,8 +127,17 @@
 			isa = PBXGroup;
 			children = (
 				02A45B222C0056490017A7B4 /* PersistentStorage.swift */,
+				02717E742C061CDA009B12DC /* CoreDataManager.swift */,
 			);
 			path = DataBaseManager;
+			sourceTree = "<group>";
+		};
+		02717E782C063BC4009B12DC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				02717E702C05E258009B12DC /* LogTableCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		02A45AE32C0043BF0017A7B4 = {
@@ -158,7 +167,6 @@
 				02717E6B2C05DFF7009B12DC /* features */,
 				02A45AEF2C0043BF0017A7B4 /* AppDelegate.swift */,
 				02A45AF12C0043BF0017A7B4 /* SceneDelegate.swift */,
-				02A45AF32C0043BF0017A7B4 /* ViewController.swift */,
 				02A45AF52C0043BF0017A7B4 /* Main.storyboard */,
 				02A45AFB2C0043C00017A7B4 /* Assets.xcassets */,
 				02A45AFD2C0043C00017A7B4 /* LaunchScreen.storyboard */,
@@ -317,13 +325,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				02EB7CAD2C0300ED0002D553 /* AddWaterLogController.swift in Sources */,
-				02A45AF42C0043BF0017A7B4 /* ViewController.swift in Sources */,
 				02717E712C05E258009B12DC /* LogTableCell.swift in Sources */,
 				02A45AF02C0043BF0017A7B4 /* AppDelegate.swift in Sources */,
-				02EB7CAB2C02FB150002D553 /* DailyWaterLogViewModel.swift in Sources */,
 				02EB7CA92C02F3AE0002D553 /* DailyWaterLogController.swift in Sources */,
 				02A45AF22C0043BF0017A7B4 /* SceneDelegate.swift in Sources */,
 				02A45B232C0056490017A7B4 /* PersistentStorage.swift in Sources */,
+				02717E772C061E99009B12DC /* HydrationLogViewModel.swift in Sources */,
+				02717E752C061CDA009B12DC /* CoreDataManager.swift in Sources */,
 				02A45AFA2C0043BF0017A7B4 /* Hydrify.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -9,19 +9,19 @@ import UIKit
 
 class LogTableCell: UITableViewCell {
     static let identifier = "LogTableCell"
-     lazy var titleLabel: UILabel = {
+    lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         
         return label
     }()
-     lazy var subTitleLabel: UILabel = {
+    lazy var subTitleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         
         return label
     }()
-     lazy var datelLabel: UILabel = {
+    lazy var datelLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -38,7 +38,7 @@ class LogTableCell: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
- 
+    
     
     private func setUpContraints() {
         NSLayoutConstraint.activate([
@@ -58,6 +58,6 @@ class LogTableCell: UITableViewCell {
         titleLabel.text = "\(log.quantity)"
         subTitleLabel.text = log.unit
         datelLabel.text = "\(log.date ?? Date())"
-       
+        
     }
 }
