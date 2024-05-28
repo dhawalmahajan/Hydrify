@@ -17,6 +17,10 @@
 		02A45B0A2C0043C10017A7B4 /* HydrifyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A45B092C0043C10017A7B4 /* HydrifyTests.swift */; };
 		02A45B142C0043C10017A7B4 /* HydrifyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A45B132C0043C10017A7B4 /* HydrifyUITests.swift */; };
 		02A45B162C0043C10017A7B4 /* HydrifyUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A45B152C0043C10017A7B4 /* HydrifyUITestsLaunchTests.swift */; };
+		02A45B232C0056490017A7B4 /* PersistentStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A45B222C0056490017A7B4 /* PersistentStorage.swift */; };
+		02EB7CA92C02F3AE0002D553 /* DailyWaterLogController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02EB7CA82C02F3AE0002D553 /* DailyWaterLogController.swift */; };
+		02EB7CAB2C02FB150002D553 /* DailyWaterLogViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02EB7CAA2C02FB150002D553 /* DailyWaterLogViewModel.swift */; };
+		02EB7CAD2C0300ED0002D553 /* AddWaterLogController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02EB7CAC2C0300ED0002D553 /* AddWaterLogController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +55,10 @@
 		02A45B0F2C0043C10017A7B4 /* HydrifyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HydrifyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		02A45B132C0043C10017A7B4 /* HydrifyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HydrifyUITests.swift; sourceTree = "<group>"; };
 		02A45B152C0043C10017A7B4 /* HydrifyUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HydrifyUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		02A45B222C0056490017A7B4 /* PersistentStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentStorage.swift; sourceTree = "<group>"; };
+		02EB7CA82C02F3AE0002D553 /* DailyWaterLogController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyWaterLogController.swift; sourceTree = "<group>"; };
+		02EB7CAA2C02FB150002D553 /* DailyWaterLogViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyWaterLogViewModel.swift; sourceTree = "<group>"; };
+		02EB7CAC2C0300ED0002D553 /* AddWaterLogController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWaterLogController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +86,48 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		02717E6B2C05DFF7009B12DC /* features */ = {
+			isa = PBXGroup;
+			children = (
+				02717E6C2C05E003009B12DC /* water logging */,
+			);
+			path = features;
+			sourceTree = "<group>";
+		};
+		02717E6C2C05E003009B12DC /* water logging */ = {
+			isa = PBXGroup;
+			children = (
+				02717E6E2C05E022009B12DC /* ViewModel */,
+				02717E6D2C05E016009B12DC /* Controller */,
+			);
+			path = "water logging";
+			sourceTree = "<group>";
+		};
+		02717E6D2C05E016009B12DC /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				02EB7CAC2C0300ED0002D553 /* AddWaterLogController.swift */,
+				02EB7CA82C02F3AE0002D553 /* DailyWaterLogController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		02717E6E2C05E022009B12DC /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				02EB7CAA2C02FB150002D553 /* DailyWaterLogViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		02717E6F2C05E034009B12DC /* DataBaseManager */ = {
+			isa = PBXGroup;
+			children = (
+				02A45B222C0056490017A7B4 /* PersistentStorage.swift */,
+			);
+			path = DataBaseManager;
+			sourceTree = "<group>";
+		};
 		02A45AE32C0043BF0017A7B4 = {
 			isa = PBXGroup;
 			children = (
@@ -101,6 +151,8 @@
 		02A45AEE2C0043BF0017A7B4 /* Hydrify */ = {
 			isa = PBXGroup;
 			children = (
+				02717E6F2C05E034009B12DC /* DataBaseManager */,
+				02717E6B2C05DFF7009B12DC /* features */,
 				02A45AEF2C0043BF0017A7B4 /* AppDelegate.swift */,
 				02A45AF12C0043BF0017A7B4 /* SceneDelegate.swift */,
 				02A45AF32C0043BF0017A7B4 /* ViewController.swift */,
@@ -261,9 +313,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02EB7CAD2C0300ED0002D553 /* AddWaterLogController.swift in Sources */,
 				02A45AF42C0043BF0017A7B4 /* ViewController.swift in Sources */,
 				02A45AF02C0043BF0017A7B4 /* AppDelegate.swift in Sources */,
+				02EB7CAB2C02FB150002D553 /* DailyWaterLogViewModel.swift in Sources */,
+				02EB7CA92C02F3AE0002D553 /* DailyWaterLogController.swift in Sources */,
 				02A45AF22C0043BF0017A7B4 /* SceneDelegate.swift in Sources */,
+				02A45B232C0056490017A7B4 /* PersistentStorage.swift in Sources */,
 				02A45AFA2C0043BF0017A7B4 /* Hydrify.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

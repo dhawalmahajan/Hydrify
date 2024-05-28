@@ -6,14 +6,26 @@
 //
 
 import UIKit
+import CoreData
 
 class ViewController: UIViewController {
+   
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
+       
     }
-
-
+   
+    
+   
+    
+//    func updateDailyTotal() {
+//        let logs = fetchLogsForToday()
+//        let total = logs.reduce(0) { $0 + $1.quantity }
+//        dailyTotalLabel.text = "Total: \(total) liters"
+//    }
+    
+    
 }
 
