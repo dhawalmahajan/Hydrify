@@ -8,13 +8,16 @@
 import UIKit
 
 class AddWaterLogController: UIViewController {
-    private let waterlogViewModel:DailyWaterLogViewModel
+    private let waterlogViewModel:HydrationLogViewModel
     private var log:WaterLog? = nil
-    init(waterlogViewModel:DailyWaterLogViewModel) {
+    
+    //MARK: INITIALIZER
+    init(waterlogViewModel:HydrationLogViewModel) {
         self.waterlogViewModel = waterlogViewModel
         super.init(nibName: nil, bundle: nil)
     }
-    convenience init(waterlogViewModel:DailyWaterLogViewModel,log: WaterLog?) {
+    
+    convenience init(waterlogViewModel:HydrationLogViewModel,log: WaterLog?) {
         self.init(waterlogViewModel: waterlogViewModel)
         self.log = log
     }
@@ -22,6 +25,8 @@ class AddWaterLogController: UIViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    //MARK: UI COMPONENTS
     fileprivate lazy var picker : UIPickerView = {
         let picker = UIPickerView()
        
@@ -44,6 +49,8 @@ class AddWaterLogController: UIViewController {
         let btn = UIButton()
         btn.translatesAutoresizingMaskIntoConstraints = false
         btn.setImage(UIImage(systemName: "calendar"), for: .normal)
+        btn.setTitle("Select Date", for: .normal)
+        btn.setTitleColor(.black, for: .normal)
         btn.addTarget(self, action: #selector(showPicker), for: .touchUpInside)
         return btn
     }()
@@ -77,7 +84,7 @@ class AddWaterLogController: UIViewController {
         btn.setTitle("Save", for: .normal)
         btn.backgroundColor = .systemBlue
         btn.layer.cornerRadius = 5
-        btn.setTitleColor(.black, for: .normal)
+        btn.setTitleColor(.white, for: .normal)
         btn.addTarget(self, action: #selector(saveLog), for: .touchUpInside)
         return btn
     }()
@@ -86,9 +93,20 @@ class AddWaterLogController: UIViewController {
         dp.datePickerMode = .date
         dp.preferredDatePickerStyle = .wheels
             dp.addTarget(self, action: #selector(didChangeDate(_:)), for: .valueChanged)
+        
         return dp
     }()
-  
+    
+    fileprivate lazy var unitToolbar: UIToolbar = {
+        let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 44))
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(pickerDoneButtonTapped))
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        toolbar.setItems([flexibleSpace, doneButton], animated: false)
+//        unitTextField.inputAccessoryView = toolbar
+        return toolbar
+    }()
+   
+  //MARK: VIEW LIFECYCLE
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
@@ -110,11 +128,9 @@ class AddWaterLogController: UIViewController {
         unitTextField.inputView = picker
         view.addSubview(stackView)
         setUpconstraint()
-        let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 44))
-        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(pickerDoneButtonTapped))
-        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        toolbar.setItems([flexibleSpace, doneButton], animated: false)
-        unitTextField.inputAccessoryView = toolbar
+        unitTextField.inputAccessoryView = unitToolbar
+        
+//        datePicker.inputView = toolbar
     }
     
     private func setUpconstraint() {
@@ -127,9 +143,13 @@ class AddWaterLogController: UIViewController {
     }
    
     private func isFormFilledValid() -> Bool{
-        if  quantityTextField.text == nil || unitTextField.text == nil {
+        if  quantityTextField.text == nil || quantityTextField.text?.trimmingCharacters(in: .whitespaces).isEmpty ?? false {
             return false
         }
+        if unitTextField.text == nil || unitTextField.text?.trimmingCharacters(in: .whitespaces).isEmpty ?? false {
+            return false
+        }
+        if dateLabel.text == "" { return false }
         
        return true
     }
@@ -139,8 +159,21 @@ class AddWaterLogController: UIViewController {
 //MARK: LISTNER FUNCTIONS
 extension AddWaterLogController {
     @objc func saveLog() {
-        waterlogViewModel.addLog(date: datePicker.date, quantity: Double(quantityTextField.text ?? "0") ?? 0, unit: unitTextField.text ?? "")
-        navigationController?.popViewController(animated: true)
+        if isFormFilledValid() {
+            if let log = log {
+                waterlogViewModel.updateEntry(entry: log, date: datePicker.date, newQuantity: Double(quantityTextField.text ?? "0") ?? 0, unit: unitTextField.text ?? "")
+                
+            } else {
+                waterlogViewModel.addEntry(date: datePicker.date, quantity: Double(quantityTextField.text ?? "0") ?? 0, unit: unitTextField.text ?? "")
+                
+            }
+            navigationController?.popViewController(animated: true)
+        }else {
+            let alertController = UIAlertController(title: "Failed", message: "Please fill form correctly!", preferredStyle: .alert)
+             let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+             alertController.addAction(okAction)
+             present(alertController, animated: true, completion: nil)
+        }
     }
     
     @objc func didChangeDate(_ sender: UIDatePicker) -> Void {
