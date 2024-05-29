@@ -144,7 +144,6 @@ class AddWaterLogController: UIViewController {
         setUpconstraint()
         unitTextField.inputAccessoryView = unitToolbar
         
-        //        datePicker.inputView = toolbar
     }
     
     private func setUpconstraint() {
