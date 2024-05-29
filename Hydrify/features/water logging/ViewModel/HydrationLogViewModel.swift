@@ -16,9 +16,14 @@ class HydrationLogViewModel: ObservableObject {
     @Published var quantity: Double = 0.0
     @Published var unit: Unit = .glass
     @Published var totalDailyIntake: Double = 0.0
-    private let coreDataManager: CoreDataManager
-    
-    init(coreDataManager: CoreDataManager) {
+    private let coreDataManager: CoreDataManaging
+    private let dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .short
+        formatter.timeStyle = .short
+        return formatter
+    }()
+    init(coreDataManager: CoreDataManaging) {
         self.coreDataManager = coreDataManager
         fetchEntries()
         calculateTotalIntake()
@@ -93,6 +98,3 @@ class HydrationLogViewModel: ObservableObject {
     }
 }
 
-extension HydrationLogViewModel {
-    
-}

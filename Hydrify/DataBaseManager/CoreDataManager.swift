@@ -7,7 +7,14 @@
 
 import Foundation
 import CoreData
-class CoreDataManager {
+protocol CoreDataManaging {
+    func createLogEntry(date: Date, quantity: Double, unit: String) -> WaterLog?
+    func fetchAllEntries() -> [WaterLog]
+    func updateLogEntry(entry: WaterLog, date: Date, newQuantity: Double, unit: String)
+    func deleteLogEntry(entry: WaterLog)
+}
+
+class CoreDataManager: CoreDataManaging {
     func createLogEntry(date: Date, quantity: Double, unit: String) -> WaterLog? {
         let newLogEntry = WaterLog(entity: WaterLog.entity(), insertInto: PersistentStorage.shared.context)
         newLogEntry.id = UUID()
@@ -31,7 +38,7 @@ class CoreDataManager {
         let startOfDay = calendar.startOfDay(for: Date())
         let endOfDay = calendar.date(byAdding: .day, value: 1, to: startOfDay)
         
-        fetchRequest.predicate = NSPredicate(format: "date >= %@ AND date < %@", startOfDay as NSDate, endOfDay as? NSDate ?? NSDate())
+//        fetchRequest.predicate = NSPredicate(format: "date >= %@ AND date < %@", startOfDay as NSDate, endOfDay as? NSDate ?? NSDate())
         
         do {
             let entries = try context.fetch(fetchRequest)

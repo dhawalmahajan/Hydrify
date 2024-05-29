@@ -58,14 +58,14 @@ class DailyWaterLogController: UIViewController {
     private func setUpconstraint() {
         NSLayoutConstraint.activate([
             
-            dailyTotalLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            dailyTotalLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            dailyTotalLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            dailyTotalLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: 8),
+            dailyTotalLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor,constant: 8),
+            dailyTotalLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant: 8),
             
-            logTable.topAnchor.constraint(equalTo: dailyTotalLabel.bottomAnchor),
-            logTable.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-            logTable.leadingAnchor.constraint(equalTo: dailyTotalLabel.leadingAnchor),
-            logTable.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+            logTable.topAnchor.constraint(equalTo: dailyTotalLabel.bottomAnchor,constant: 8),
+            logTable.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor,constant: 8),
+            logTable.leadingAnchor.constraint(equalTo: dailyTotalLabel.leadingAnchor,constant: 8),
+            logTable.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant: 8)
             
         ])
     }

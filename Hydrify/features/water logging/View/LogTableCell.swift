@@ -42,15 +42,15 @@ class LogTableCell: UITableViewCell {
     
     private func setUpContraints() {
         NSLayoutConstraint.activate([
-            titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor),
-            subTitleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            subTitleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            subTitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor),
-            datelLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            datelLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            datelLabel.topAnchor.constraint(equalTo: subTitleLabel.bottomAnchor),
+            titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor,constant: 8),
+            titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor,constant: 8),
+            titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor,constant: 8),
+            subTitleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor,constant: 8),
+            subTitleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor,constant: 8),
+            subTitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor,constant: 8),
+            datelLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor,constant: 8),
+            datelLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor,constant: 8),
+            datelLabel.topAnchor.constraint(equalTo: subTitleLabel.bottomAnchor,constant: 8),
         ])
     }
     
